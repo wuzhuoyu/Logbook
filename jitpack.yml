@@ -1,0 +1,10 @@
+before_install:
+  - sdk install java 11.0.10-open
+  - sdk use java 11.0.10-open
+
+jdk:
+  - openjdk11
+
+version: 1.0.0
+group: com.yuu.android.component
+artifact: logbook
