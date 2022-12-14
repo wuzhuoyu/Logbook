@@ -8,6 +8,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
+    `maven-publish`
 }
 
 android {
@@ -32,11 +33,7 @@ android {
 
     sourceSets {
         getByName("main") {
-            if (isAloneRun) {
-                manifest.srcFile("src/main/manifest/AndroidManifest.xml")
-            } else {
-                manifest.srcFile("src/main/AndroidManifest.xml")
-            }
+            manifest.srcFile("src/main/AndroidManifest.xml")
         }
     }
 
@@ -60,9 +57,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-    buildFeatures {
-        viewBinding = true
     }
 }
 
@@ -102,4 +96,18 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.6")
 
 
+}
+
+afterEvaluate {
+    publishing{
+        publications {
+            create<MavenPublication>("release"){
+                group = "com.yuu.android.component"
+                artifactId = "logbook"
+                version = "0.0.1-alpha"
+
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+            }
+        }
+    }
 }
