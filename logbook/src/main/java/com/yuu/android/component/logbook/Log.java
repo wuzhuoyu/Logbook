@@ -68,37 +68,37 @@ public abstract class Log implements ILogApi {
     }
 
     @Override
-    public void d(@Nullable String message, @Nullable Object... args) {
+    public void d(@NonNull String message, @Nullable Object... args) {
         log(Logger.DEBUG, getTag(), createMessage(message, args), null);
     }
 
     @Override
-    public void i(@Nullable String message, @Nullable Object... args) {
+    public void i(@NonNull String message, @Nullable Object... args) {
         log(Logger.INFO, getTag(), createMessage(message, args), null);
     }
 
     @Override
-    public void w(@Nullable String message, @Nullable Object... args) {
+    public void w(@NonNull String message, @Nullable Object... args) {
         log(Logger.WARN, getTag(), createMessage(message, args), null);
     }
 
     @Override
-    public void e(@Nullable String message, @Nullable Object... args) {
+    public void e(@NonNull String message, @Nullable Object... args) {
         log(Logger.ERROR, getTag(), createMessage(message, args), null);
     }
 
     @Override
-    public void e(@Nullable String message, @Nullable Throwable throwable, @Nullable Object... args) {
+    public void e(@NonNull String message, @Nullable Throwable throwable, @Nullable Object... args) {
         log(Logger.ERROR, getTag(), createMessage(message, args), throwable);
     }
 
     @Override
-    public void v(@Nullable String message, @Nullable Object... args) {
+    public void v(@NonNull String message, @Nullable Object... args) {
         log(Logger.VERBOSE,getTag(),createMessage(message, args),null);
     }
 
     @Override
-    public void json(@Nullable String json) {
+    public void json(@NonNull String json) {
         if (ObjectUtils.isEmpty(json)) {
             d("Empty/Null json content");
             return;
@@ -125,7 +125,7 @@ public abstract class Log implements ILogApi {
     }
 
     @Override
-    public void xml(@Nullable String xml) {
+    public void xml(@NonNull String xml) {
         if (ObjectUtils.isEmpty(xml)) {
             d("Empty/Null xml content");
             return;
