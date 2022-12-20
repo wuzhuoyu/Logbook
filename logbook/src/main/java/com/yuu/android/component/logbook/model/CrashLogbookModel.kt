@@ -13,7 +13,7 @@ import com.yuu.android.component.logbook.utils.toJson
  */
 
 data class CrashLogbookModel(
-    val errorMessage: String? = "App发生了崩溃，请及时处理！",
+    val crashMessage: String? = "App发生了崩溃，请及时处理！",
 ): AndroidLogModel(), LogbookProtocol {
 
     /**

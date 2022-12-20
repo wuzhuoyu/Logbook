@@ -26,7 +26,7 @@ class LogbookStrategyServer(private val api:String) : LogbookStrategy {
 
         if (request.label == "ANR") {
             return CrashLogbookModel(
-                errorMessage = request.throwable?.message
+                crashMessage = request.throwable?.message
             ).apply {
                 chain = request.chain
                 logcat = request.logcat
@@ -42,6 +42,7 @@ class LogbookStrategyServer(private val api:String) : LogbookStrategy {
             tag = request.tag
             label = request.label
             priority = request.priority.meaning
+
         }
     }
 

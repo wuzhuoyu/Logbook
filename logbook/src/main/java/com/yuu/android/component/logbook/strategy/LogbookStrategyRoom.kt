@@ -34,7 +34,7 @@ class LogbookStrategyRoom(private val application: Application,private val dbNam
 
         if (request.label == "ANR") {
             return CrashLogbookModel(
-                errorMessage = request.throwable?.message ?: "App发生了崩溃，请及时处理！"
+                crashMessage = request.throwable?.message ?: "App发生了崩溃，请及时处理！"
             ).apply {
                 chain = request.chain
                 logcat = request.logcat

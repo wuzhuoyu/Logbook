@@ -43,6 +43,11 @@ open class DefaultLogbookModel: LogbookProtocol {
      * */
     var priority:String?=null
 
+    /**
+     * 日志错误
+     * */
+    var throwable:String?=null
+
     val appVersionName:String = AppUtils.getAppVersionName()
     val deviceModel:String = DeviceUtils.getModel()
     val deviceTimestamp:String = TimeUtils.getNowString()

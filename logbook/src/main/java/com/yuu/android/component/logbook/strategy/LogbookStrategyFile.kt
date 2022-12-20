@@ -25,7 +25,7 @@ class LogbookStrategyFile(private val path: String) : LogbookStrategy {
 
         if (request.label == "ANR") {
             return CrashLogbookModel(
-                errorMessage = request.throwable?.message ?: "App发生了崩溃，请及时处理！"
+                crashMessage = request.throwable?.message ?: "App发生了崩溃，请及时处理！"
             ).apply {
                 chain = request.chain
                 logcat = request.logcat
@@ -41,6 +41,7 @@ class LogbookStrategyFile(private val path: String) : LogbookStrategy {
             tag = request.tag
             label = request.label
             priority = request.priority.meaning
+            throwable =  request.throwable?.message
         }
     }
 
