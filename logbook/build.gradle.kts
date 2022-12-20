@@ -66,6 +66,7 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation ("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.1")
+    implementation(files("libs/logger.jar"))
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.2")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
@@ -89,7 +90,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.5.0")
 
     // logger
-    implementation("com.orhanobut:logger:2.2.0")
+//    implementation("com.orhanobut:logger:2.2.0")
     // blankj
     implementation("com.blankj:utilcodex:1.31.1")
     // gson
