@@ -1,5 +1,6 @@
 package com.yuu.android.component.logbook.api
 
+import android.app.Application
 import com.yuu.android.component.logbook.Logbook
 import com.yuu.android.component.logbook.config.LogbookConfig
 
@@ -15,7 +16,7 @@ import com.yuu.android.component.logbook.config.LogbookConfig
 interface ILogbookApi {
 
     /** 初始化配置 */
-    fun init(logbookConfig: LogbookConfig)
+    fun init(application: Application,logbookConfig: LogbookConfig)
 
     /**
      * 日志特殊标记

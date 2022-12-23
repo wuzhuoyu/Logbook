@@ -1,5 +1,7 @@
 package com.yuu.android.component.logbook
 
+import android.app.Application
+import com.blankj.utilcode.util.Utils
 import com.yuu.android.component.logbook.api.ILogbookApi
 import com.yuu.android.component.logbook.config.LogbookConfig
 import com.yuu.android.component.logbook.strategy.LogbookStrategy
@@ -16,8 +18,10 @@ object Logbook:Log(), ILogbookApi {
     private val dispatcher by lazy { LogbookDispatcher() }
     private var strategies: List<LogbookStrategy> ?=null
 
-    override fun init(logbookConfig: LogbookConfig) {
+    override fun init(application: Application, logbookConfig: LogbookConfig) {
         // 初始化logcat样式
+
+        Utils.init(application)
         initLogger(logbookConfig.loggerConfig)
         initLogbook(logbookConfig.strategies)
     }

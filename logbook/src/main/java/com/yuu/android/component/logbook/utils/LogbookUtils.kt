@@ -18,7 +18,6 @@ internal object LogbookUtils {
      * 获取设备ID(设备硬件编号)
      */
     fun getDeviceID():String{
-
         val c = Class.forName("android.os.SystemProperties")
         val get = c.getMethod("get", String::class.java)
         val deviceId = get.invoke(c, "ro.serialno") as String?

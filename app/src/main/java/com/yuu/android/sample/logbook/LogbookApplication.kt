@@ -31,7 +31,7 @@ class LogbookApplication : Application() {
             .addLogbookStrategy(LogbookStrategyServer("http://192.168.100.100:4422"))
             .build()
 
-        Logbook.init(logbookConfig)
+        Logbook.init(this,logbookConfig)
     }
 
     companion object{
