@@ -102,7 +102,7 @@ afterEvaluate {
             create<MavenPublication>("release"){
                 group = "com.yuu.android.component"
                 artifactId = "logbook"
-                version = "0.0.4-alpha"
+                version = "0.0.5-alpha"
 
                 afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
             }
