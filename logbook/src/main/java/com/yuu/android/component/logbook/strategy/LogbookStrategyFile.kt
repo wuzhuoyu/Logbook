@@ -1,5 +1,6 @@
 package com.yuu.android.component.logbook.strategy
 
+import com.yuu.android.component.logbook.BuildConfig
 import com.yuu.android.component.logbook.LogbookRequest
 import com.yuu.android.component.logbook.LogbookResponse
 import com.yuu.android.component.logbook.model.CrashLogbookModel
@@ -18,7 +19,7 @@ import com.yuu.android.component.logbook.utils.LogbookUtils
 
 class LogbookStrategyFile(private val path: String) : LogbookStrategy {
 
-    override fun recordable(): Boolean = true
+    override fun recordable(): Boolean = !BuildConfig.DEBUG
 
     override fun verify(request: LogbookRequest): LogbookProtocol? {
         if (request.file == null) return null

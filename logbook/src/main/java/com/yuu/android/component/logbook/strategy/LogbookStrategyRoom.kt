@@ -2,6 +2,7 @@ package com.yuu.android.component.logbook.strategy
 
 import android.app.Application
 import com.blankj.utilcode.util.TimeUtils
+import com.yuu.android.component.logbook.BuildConfig
 import com.yuu.android.component.logbook.LogbookRequest
 import com.yuu.android.component.logbook.LogbookResponse
 import com.yuu.android.component.logbook.config.LogStorageLevel
@@ -27,7 +28,7 @@ class LogbookStrategyRoom(private val application: Application,private val dbNam
         LogbookDatabase.buildDatabase(application,dbName)
     }
 
-    override fun recordable(): Boolean = true
+    override fun recordable(): Boolean = !BuildConfig.DEBUG
 
     override fun verify(request: LogbookRequest): LogbookProtocol? {
         if (request.priority.level < LogStorageLevel.VERBOSE.level) return null

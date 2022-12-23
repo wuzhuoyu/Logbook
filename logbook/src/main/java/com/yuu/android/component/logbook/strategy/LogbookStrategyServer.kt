@@ -1,12 +1,13 @@
 package com.yuu.android.component.logbook.strategy
 
+import com.yuu.android.component.logbook.BuildConfig
+import com.yuu.android.component.logbook.Logbook
 import com.yuu.android.component.logbook.LogbookRequest
 import com.yuu.android.component.logbook.LogbookResponse
 import com.yuu.android.component.logbook.config.LogStorageLevel
 import com.yuu.android.component.logbook.model.CrashLogbookModel
 import com.yuu.android.component.logbook.model.DefaultLogbookModel
 import com.yuu.android.component.logbook.model.LogbookProtocol
-import com.yuu.android.component.logbook.utils.LogbookUtils
 
 
 /**
@@ -19,7 +20,7 @@ import com.yuu.android.component.logbook.utils.LogbookUtils
 
 class LogbookStrategyServer(private val api:String) : LogbookStrategy {
 
-    override fun recordable(): Boolean = true
+    override fun recordable(): Boolean = !BuildConfig.DEBUG
 
     override fun verify(request: LogbookRequest): LogbookProtocol? {
         if (request.priority.level < LogStorageLevel.DEBUG.level) return null
@@ -47,6 +48,7 @@ class LogbookStrategyServer(private val api:String) : LogbookStrategy {
     }
 
     override fun record(response: LogbookResponse) {
-        LogbookUtils.post(postUrl = api,response.log)
+//        LogbookUtils.post(postUrl = api,response.log)
+        Logbook.record(false).i("假装上传了${response.log}")
     }
 }
