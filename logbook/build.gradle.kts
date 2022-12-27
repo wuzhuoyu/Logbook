@@ -68,6 +68,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.1")
     implementation(files("libs/logger.jar"))
     implementation(files("libs/blankj.jar"))
+    implementation(files("libs/gson.jar"))
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.2")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
@@ -89,10 +90,6 @@ dependencies {
     implementation("androidx.hilt:hilt-work:1.0.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.work:work-runtime-ktx:2.5.0")
-
-    // gson
-    implementation("com.google.code.gson:gson:2.8.6")
-
 
 }
 
