@@ -66,9 +66,6 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation ("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.1")
-    implementation(files("libs/logger.jar"))
-    implementation(files("libs/blankj.jar"))
-    implementation(files("libs/gson.jar"))
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.2")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
@@ -78,7 +75,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
 
     //room
-    val room_version = "2.2.6"
+    val room_version = "2.4.1"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
@@ -91,6 +88,12 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.work:work-runtime-ktx:2.5.0")
 
+    // logger
+    implementation("com.orhanobut:logger:2.2.0")
+    // blankj
+    implementation("com.blankj:utilcodex:1.31.1")
+    // gson
+    implementation("com.google.code.gson:gson:2.8.6")
 }
 
 afterEvaluate {
@@ -99,7 +102,7 @@ afterEvaluate {
             create<MavenPublication>("release"){
                 group = "com.yuu.android.component"
                 artifactId = "logbook"
-                version = "0.0.6-alpha"
+                version = "0.0.7-alpha"
 
                 afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
             }
