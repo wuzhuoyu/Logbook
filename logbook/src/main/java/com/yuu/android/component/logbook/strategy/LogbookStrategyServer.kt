@@ -8,6 +8,7 @@ import com.yuu.android.component.logbook.config.LogStorageLevel
 import com.yuu.android.component.logbook.model.CrashLogbookModel
 import com.yuu.android.component.logbook.model.DefaultLogbookModel
 import com.yuu.android.component.logbook.model.LogbookProtocol
+import com.yuu.android.component.logbook.utils.LogbookUtils
 
 
 /**
@@ -48,7 +49,6 @@ class LogbookStrategyServer(private val api:String) : LogbookStrategy {
     }
 
     override fun record(response: LogbookResponse) {
-//        LogbookUtils.post(postUrl = api,response.log)
-        Logbook.record(false).i("假装上传了${response.log}")
+        LogbookUtils.post(postUrl = api,response.log)
     }
 }
