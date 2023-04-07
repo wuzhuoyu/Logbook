@@ -61,7 +61,7 @@ android {
 }
 
 dependencies {
-
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar","*.aar"))))
     implementation ("androidx.core:core-ktx:1.3.2")
     implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation ("com.google.android.material:material:1.3.0")
@@ -103,8 +103,7 @@ afterEvaluate {
                 group = "com.yuu.android.component"
                 artifactId = "logbook"
                 version = "0.0.7-alpha"
-
-                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                from(components["release"])
             }
         }
     }
