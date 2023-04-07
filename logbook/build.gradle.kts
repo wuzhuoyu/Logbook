@@ -89,7 +89,7 @@ afterEvaluate {
             create<MavenPublication>("release"){
                 group = "com.yuu.android.component"
                 artifactId = "logbook"
-                version = "0.0.7-alpha"
+                version = "0.0.7"
                 from(components["release"])
             }
         }
