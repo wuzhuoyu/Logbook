@@ -63,12 +63,6 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar","*.aar"))))
     implementation ("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.3.0")
-    implementation ("com.google.android.material:material:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.1")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
 
     //协程
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
@@ -77,23 +71,16 @@ dependencies {
     //room
     val room_version = "2.4.1"
     implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    testImplementation("androidx.room:room-testing:$room_version")
 
-    //work manager
-    implementation("androidx.work:work-runtime:2.5.0")
-    implementation("androidx.hilt:hilt-work:1.0.0")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-    implementation("androidx.work:work-runtime-ktx:2.5.0")
 
     // logger
-    implementation("com.orhanobut:logger:2.2.0")
+    api("com.orhanobut:logger:2.2.0")
     // blankj
-    implementation("com.blankj:utilcodex:1.31.1")
+    api("com.blankj:utilcodex:1.31.1")
     // gson
-    implementation("com.google.code.gson:gson:2.8.6")
+    api("com.google.code.gson:gson:2.8.6")
 }
 
 afterEvaluate {
